@@ -1,0 +1,15 @@
+# Archivos de variables de entorno reales (nunca subir credenciales)
+.env
+.env.local
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Carpetas de editores / IDEs
+.vscode/
+.idea/
+
+# Logs y temporales
+*.log
+npm-debug.log*

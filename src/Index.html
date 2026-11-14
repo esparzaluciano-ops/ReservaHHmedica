@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva tu Hora - Clínica Bienestar</title>
+    <!-- Tailwind CSS para un diseño moderno y limpio -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente amigable (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-sky-50 min-h-screen flex flex-col justify-between">
+
+    <!-- Encabezado -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="bg-teal-500 text-white p-2 rounded-xl font-bold text-xl">🏥</div>
+            <div>
+                <h1 class="text-xl font-bold text-slate-800">Clínica Bienestar</h1>
+                <p class="text-xs text-slate-500">Cuidando de ti y tu familia</p>
+            </div>
+        </div>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+            <a href="#" class="hover:text-teal-600 transition">Inicio</a>
+            <a href="#" class="hover:text-teal-600 transition">Especialidades</a>
+            <a href="#" class="hover:text-teal-600 transition">Mis Citas</a>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-4 py-8 max-w-2xl">
+        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-slate-800">Reserva tu hora médica</h2>
+                <p class="text-sm text-slate-500 mt-1">Completa los datos para agendar con tu especialista de confianza.</p>
+            </div>
+
+            <!-- Formulario de Reserva -->
+            <form id="reservaForm" class="space-y-5">
+                <!-- Especialidad -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">¿Qué especialista necesitas?</label>
+                    <select id="especialidad" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                        <option value="">Selecciona una especialidad</option>
+                        <option value="Medicina General">Medicina General</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Odontología">Odontología</option>
+                        <option value="Kinesiología">Kinesiología</option>
+                        <option value="Psicología">Psicología</option>
+                    </select>
+                </div>
+
+                <!-- Fecha y Hora -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Fecha preferida</label>
+                        <input type="date" id="fecha" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Horario</label>
+                        <select id="horario" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                            <option value="">Selecciona un horario</option>
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="11:30 AM">11:30 AM</option>
+                            <option value="03:00 PM">03:00 PM</option>
+                            <option value="05:30 PM">05:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Datos del Paciente -->
+                <div class="border-t border-slate-100 pt-4 mt-4">
+                    <h3 class="text-sm font-semibold text-slate-700 mb-3">Tus datos personales</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Nombre completo</label>
+                            <input type="text" id="nombre" placeholder="Ej. Ana Pérez" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 mb-1">Correo electrónico</label>
+                                <input type="email" id="correo" placeholder="correo@ejemplo.com" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 mb-1">Teléfono de contacto</label>
+                                <input type="tel" id="telefono" placeholder="+56 9 1234 5678" required class="w-full rounded-xl border border-slate-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-slate-50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-medium p-3.5 rounded-xl transition shadow-lg shadow-teal-500/20 mt-2">
+                    Confirmar Reserva
+                </button>
+            </form>
+
+            <!-- Mensaje de Éxito (Oculto por defecto) -->
+            <div id="mensajeExito" class="hidden text-center py-8 space-y-3">
+                <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+                <h3 class="text-xl font-bold text-slate-800">¡Reserva Exitosa!</h3>
+                <p class="text-sm text-slate-600 max-w-sm mx-auto">Hemos enviado los detalles de tu cita y las instrucciones de pago a tu correo electrónico.</p>
+                <button onclick="resetForm()" class="mt-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-6 py-2.5 rounded-xl text-sm transition">
+                    Agendar otra hora
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="text-center py-6 text-xs text-slate-400">
+        © 2026 Clínica Bienestar. Todos los derechos reservados.
+    </footer>
+
+    <!-- Script para manejar el formulario amigablemente -->
+    <script>
+        const form = document.getElementById('reservaForm');
+        const mensajeExito = document.getElementById('mensajeExito');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que recargue la página
+
+            // Ocultar formulario y mostrar mensaje de éxito con animación simple
+            form.classList.add('hidden');
+            mensajeExito.classList.remove('hidden');
+        });
+
+        function resetForm() {
+            form.reset();
+            mensajeExito.classList.add('hidden');
+            form.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
